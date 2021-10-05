@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="output.css" rel="stylesheet">
   <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
   <title>Reborn OS</title>
 </head>
 
@@ -169,6 +171,17 @@
       button.addEventListener('click', () => {
         menu.classList.toggle('hidden');
       });      
+    </script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
     </script>
   </header>
 
